@@ -10,7 +10,7 @@ const CountrySeach = () => {
 
   let query = new URLSearchParams(window.location.search)
   let resultado = query.get('search')
-  console.log(resultado)
+ 
   const apiCountry = `https://restcountries.com/v3.1/name/${resultado}`
 
   useEffect(() => {
@@ -19,10 +19,10 @@ const CountrySeach = () => {
       .then(data => {
         const pais = data
         setPaisResultado(pais)
-        console.log(data)
+        
       })
   }, [apiCountry])
-  console.log(paisResultado)
+
 
 
   return (

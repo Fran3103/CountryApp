@@ -3,10 +3,13 @@
 import { Route, Routes } from "react-router-dom"
 import CountrySeach from "./Components/CountrySeach"
 import Form from './Components/Form'
-import { Principal } from "./Components/Principal"
+
 
 import Header from './Components/Header.jsx'
 import Region from "./Components/Region"
+import GetCountry from "./Components/GetCountry"
+import PaisDetalle from "./Components/PaisDetalle"
+import BorderCountry from "./Components/BorderCountry"
 function App() {
 
 
@@ -19,9 +22,11 @@ function App() {
         <Header/>
         <Form/>
       <Routes>
-        <Route path="/" element={<Principal/>} />
+        <Route path="/" element={<GetCountry/>} />
         <Route path="/resultado" element={<CountrySeach/>} />
         <Route path="/region" element={<Region/>}/>
+        <Route path="resultado" element={<PaisDetalle/>}/>
+        <Route path="/border" element={<BorderCountry/>}/>
       </Routes>
 
     

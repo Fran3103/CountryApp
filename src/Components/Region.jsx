@@ -1,26 +1,34 @@
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
 import CountryRegion from "./CountryRegion"
 
 const Region = () => {
 
     uuidv4()
-    const [countrys, setcountrys] = useState([])
-
-
+    
+    
     let query = new URLSearchParams(window.location.search)
     let resultado = query.get('region')
     
-    
-    useEffect(() => {
     const Api = `https://restcountries.com/v3.1/region/${resultado}`
+    const [countrys, setcountrys] = useState([])
+   
+    
+    const getRegion = useCallback(()=>{
       fetch(Api)
       .then((resp)=> resp.json())
       .then((data) =>{
-        setcountrys(data)
-        console.log(data)
-      })
-    }, [resultado,countrys])
+         const datos = data
+         setcountrys(datos)
+        }
+        )
+    },[Api]);
+
+
+    useEffect(() => {
+      
+      getRegion()
+    }, [getRegion])
     
 
   return (

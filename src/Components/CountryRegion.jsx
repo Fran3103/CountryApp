@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 // eslint-disable-next-line react/prop-types
 const CountryRegion = ({name ,region , population , capital, flag, flagAlt}) => {
     return (
@@ -6,7 +8,9 @@ const CountryRegion = ({name ,region , population , capital, flag, flagAlt}) => 
       
   
   
-      <div className="w-72  bg-gray-900 shadow-xl rounded-md mt-16 duration-500 ">
+        <Link to={`/resultado?search=${name}`} >
+      <div className="w-72  bg-gray-900 shadow-xl rounded-md mt-16 duration-500 hover:scale-110">
+
           <div className="w-full h-[144px] ">
       
               <img className="w-full h-full rounded-t-md " src={flag} alt={flagAlt}/>
@@ -22,6 +26,7 @@ const CountryRegion = ({name ,region , population , capital, flag, flagAlt}) => 
           </div>
   
       </div>
+        </Link>
     
     )
   }

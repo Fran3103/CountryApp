@@ -16,15 +16,25 @@ const BorderCountry = () => {
    
 
     useEffect(() => {
-        fetch(Api)
+
+      try {
+            fetch(Api)
           .then(resp => resp.json())
           .then(data => {
             const pais = data
             setcountrys(pais)
             console.log(data)
           })
+          
+        } catch (error) {
+          console.log('error')
+        }
+          
+      
       }, [Api])
 
+
+   
 
       console.log(countrys)
   return (

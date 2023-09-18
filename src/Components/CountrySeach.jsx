@@ -5,42 +5,52 @@ import PaisDetalle from "./PaisDetalle"
 import { v4 as uuidv4 } from 'uuid'
 
 const CountrySeach = () => {
-  uuidv4()
   const [paisResultado, setPaisResultado] = useState([])
-
+  
+  uuidv4()
   let query = new URLSearchParams(window.location.search)
   let resultado = query.get('search')
  
   const apiCountry = `https://restcountries.com/v3.1/name/${resultado}`
 
   useEffect(() => {
-    fetch(apiCountry)
+    try {
+      fetch(apiCountry)
       .then(resp => resp.json())
       .then(data => {
         const pais = data
         setPaisResultado(pais)
         
       })
+    } catch (error) {
+      console.log('error')
+    }
+    
+     
   }, [apiCountry])
 
 
+console.log(paisResultado)
 
   return (
+    
+    
     <div className="bg-bgLightGray dark:bg-bgVeryDarkBlue duration-500 dark:duration-500">
       
       
-        
-       {paisResultado.map(country => {
+      
+      {paisResultado?.map(country => {
         return(
           <PaisDetalle
           key={country.name.common}
           name={country.name.common}
           capital={country.capital}
           region={country.region}
+        
           languages={country.languages}
           population={country.population}
           official={country.name.official}
-        
+          
           flag={country.flags.png}
           flagAlt={country.flags.alt}
           subregion={country.subregion}
@@ -48,10 +58,12 @@ const CountrySeach = () => {
           currencies={country.currencies}
           borders={country.borders}
           />
+          )
+        })}
+        </div>
+      
         )
-       })}
-    </div>
-  )
-}
-
+    }
+      
+      
 export default CountrySeach

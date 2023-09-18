@@ -16,7 +16,7 @@ const GetCountry = () => {
                 setcountrys( data)
                 
             })
-
+            .catch(console.error())
 
     }, [])
     
@@ -26,7 +26,7 @@ const GetCountry = () => {
   return (
     <div className=" flex flex-wrap xl:grid xl:grid-cols-4 place-items-center w-full justify-center items-center gap-16 max-w-[1440px] m-auto duration-500">
         {countrys && 
-            countrys.map((country)=>{
+            countrys?.map((country)=>{
                 return (
                     <Country
                         key={uuidv4()}

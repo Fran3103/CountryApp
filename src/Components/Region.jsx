@@ -15,6 +15,7 @@ const Region = () => {
    
     
     const getRegion = useCallback(()=>{
+      
       fetch(Api)
       .then((resp)=> resp.json())
       .then((data) =>{
@@ -22,6 +23,7 @@ const Region = () => {
          setcountrys(datos)
         }
         )
+        .catch(console.error())
     },[Api]);
 
 

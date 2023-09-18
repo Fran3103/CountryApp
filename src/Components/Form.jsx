@@ -6,6 +6,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 import { useNavigate } from "react-router-dom";
 
+
 const Form = () => {
     uuidv4()
 //   const [search, setSearch] = useState('')
@@ -24,36 +25,26 @@ const history = useNavigate()
             history(`/resultado?search=${busqueda}`)
             
         }
-        // setSearch(e.target.busqueda.value)
+      
         
     }
-    console.log(history)
-    // const regionCountry = `https://restcountries.com/v3.1/region/${region}`
     
-    // const onChange = e => {
-    //     setregion(e.target.value)
-    // }
     
-    // const nameCountry = `https://restcountries.com/v3.1/name/${search}`
-    // useEffect(() => {
+    const onChange = e =>{
+        e.preventDefault()
+     
+            if(e.value === 'All'){
+                console.log('')
+            }else{
+                const region = e.target.value
+                history(`/region?region=${region}`)
+            }
         
-    //   fetch(nameCountry)
-    //     .then(resp => resp.json())
-    //     .then((data) => {
-           
-    //         setPais(data)
-    //     })
-    // }, [nameCountry])
+    }
 
-
-    // useEffect(() => {
-       
-    //         fetch(regionCountry)
-    //         .then(resp => resp.json())
-    //         .then(data => {
-    //             setregion(data)
-    //          })
-    // }, [regionCountry])
+  
+    
+    
    
 
 
@@ -65,14 +56,14 @@ const history = useNavigate()
                 <input type="text" name="busqueda" placeholder="Seach for a country" className="pl-9 p-3 shadow-lg dark:bg-DarkBlue dark:text-bgLightGray duration-500 " />
             </div>
             <div >
-                <select name="region" className=" p-3 shadow-lg dark:bg-DarkBlue dark:text-bgLightGray duration-500" >
+                <select name="region" className=" p-3 shadow-lg dark:bg-DarkBlue dark:text-bgLightGray duration-500"onChange={onChange} >
                    
-                    <option value="All"  className="hidden">Filter by Region </option>
-                    <option value="Africa" className="mt-3">Africa</option>
-                    <option value="America">America</option>
-                    <option value="Asia">Asia</option>
-                    <option value="Europa">Europa</option>
-                    <option value="Oceania">Oceania</option>
+                    <option   className="hidden">Filter by Region </option>
+                    <option value="Africa"  className="mt-3">Africa</option>
+                    <option value="America" onClick={onChange} >America</option>
+                    <option value="Asia" onClick={onChange} >Asia</option>
+                    <option value="Europe" onClick={onChange} >Europa</option>
+                    <option value="Oceania" onClick={onChange} >Oceania</option>
                 </select>
             </div>
         </form>

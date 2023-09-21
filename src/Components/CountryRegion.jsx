@@ -8,7 +8,7 @@ const CountryRegion = ({name ,region , population , capital, flag, flagAlt}) => 
       
   
   
-        <Link to={`/resultado?search=${name}`} >
+        <Link to={`/resultado/${name}`} >
       <div className="w-72  bg-gray-900 shadow-xl rounded-md mt-16 duration-500 hover:scale-110">
 
           <div className="w-full h-[144px] ">

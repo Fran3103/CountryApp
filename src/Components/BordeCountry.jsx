@@ -6,7 +6,7 @@ const PaisDetalle = ({name ,region ,languages, population ,official, capital, fl
 
 // eslint-disable-next-line react/prop-types
 const border = borders.map((borde)=>{return(
-   <Link key={borde} to={`/border?border=${borde}`}>
+   <Link key={borde} to={`/border/${borde}`}>
     <button  className=" bg-bgLightGray text-base rounded-md shadow-xl px-6 py-2 dark:bg-DarkBlue dark:text-bgLightGray" >
         {borde}
     </button>

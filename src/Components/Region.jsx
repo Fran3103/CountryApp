@@ -1,16 +1,19 @@
 import { useCallback, useEffect, useState } from "react"
 import { v4 as uuidv4 } from 'uuid'
 import CountryRegion from "./CountryRegion"
+import { useParams } from "react-router-dom"
 
 const Region = () => {
 
     uuidv4()
     
     
-    let query = new URLSearchParams(window.location.search)
-    let resultado = query.get('region')
+    // let query = new URLSearchParams(window.location.search)
+    // let resultado = query.get('region')
     
-    const Api = `https://restcountries.com/v3.1/region/${resultado}`
+    let { region} = useParams();
+
+    const Api = `https://restcountries.com/v3.1/region/${region}`
     const [countrys, setcountrys] = useState([])
    
     

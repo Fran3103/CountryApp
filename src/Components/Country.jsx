@@ -9,7 +9,7 @@ const Country = ({name ,region , population , capital, flag, flagAlt}) => {
     
 
     <div className="w-72  bg-gray-900 shadow-xl rounded-md mt-16 duration-500  hover:scale-110 ">
-      <Link to={`resultado?search=${name}`} >
+      <Link to={`/resultado/${name}`} >
         <div className="w-full h-[144px] ">
     
             <img className="w-full h-full rounded-t-md " src={flag} alt={flagAlt}/>

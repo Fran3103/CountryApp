@@ -3,33 +3,40 @@
 import { useEffect, useState } from "react"
 import PaisDetalle from "./PaisDetalle"
 import { v4 as uuidv4 } from 'uuid'
+import { useParams } from "react-router-dom"
+import NoFound from "./NoFound"
+
 
 const CountrySeach = () => {
-  const [paisResultado, setPaisResultado] = useState([])
-  
+  const [paisResultado, setPaisResultado] = useState()
+  let { resultado} = useParams();
   uuidv4()
-  let query = new URLSearchParams(window.location.search)
-  let resultado = query.get('search')
- 
-  const apiCountry = `https://restcountries.com/v3.1/name/${resultado}`
-
+  const [actvivo, setActivo] = useState(false)
+  setTimeout(() => {
+    setActivo(true)
+  }, 1000);
+  // let query = new URLSearchParams(window.location.search)
+  // let resultado = query.get('search')
+console.log(resultado)
+  
   useEffect(() => {
-    try {
-      fetch(apiCountry)
-      .then(resp => resp.json())
-      .then(data => {
-        const pais = data
-        setPaisResultado(pais)
+    // const apiCountry = `https://restcountries.com/v3.1/name/${resultado}`
+  
+    fetch(`https://restcountries.com/v3.1/name/${resultado}`)
+    .then(resp => { 
+      if (!resp.ok ){
         
-      })
-    } catch (error) {
-      console.log('error')
-    }
+        return  }
+        return resp.json() })
+    .then(data =>  setPaisResultado(data))
     
      
-  }, [apiCountry])
+  }, [resultado])
 
-
+  // if(paisResultado === undefined){
+  //   Navigate('/')
+  //   return
+  // }
 console.log(paisResultado)
 
   return (
@@ -37,9 +44,9 @@ console.log(paisResultado)
     
     <div className="bg-bgLightGray dark:bg-bgVeryDarkBlue duration-500 dark:duration-500">
       
-      
-      
-      {paisResultado?.map(country => {
+      {!paisResultado && <h3 className={actvivo ? 'hidden' : 'text-3xl'}>Loanding...</h3>}
+      {paisResultado=== undefined && <NoFound/>}
+      { paisResultado && paisResultado?.map(country => {
         return(
           <PaisDetalle
           key={country.name.common}
@@ -60,7 +67,7 @@ console.log(paisResultado)
           />
           )
         })}
-        </div>
+        </div> 
       
         )
     }

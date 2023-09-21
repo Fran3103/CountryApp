@@ -23,10 +23,10 @@ function App() {
         <Form/>
       <Routes>
         <Route path="/" element={<GetCountry/>} />
-        <Route path="/resultado" element={<CountrySeach/>} />
-        <Route path="/region" element={<Region/>}/>
-        <Route path="resultado" element={<PaisDetalle/>}/>
-        <Route path="/border" element={<BorderCountry/>}/>
+        <Route path="/resultado/:resultado" element={<CountrySeach/>} />
+        <Route path="/region/:region" element={<Region/>}/>
+        <Route path='/resultado/:resultado'element={<PaisDetalle/>}/>
+        <Route path="/border/:borde" element={<BorderCountry/>}/>
       </Routes>
 
     

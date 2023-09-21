@@ -1,5 +1,5 @@
 
-// import { useEffect, useState } from "react";
+
 import { BsSearch } from "react-icons/bs";
 
 import { v4 as uuidv4 } from 'uuid'
@@ -9,8 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const Form = () => {
     uuidv4()
-//   const [search, setSearch] = useState('')
-//   const [region, setregion] = useState('')
+
 
 
 const history = useNavigate()
@@ -22,7 +21,7 @@ const history = useNavigate()
             return
         }else{
             e.target.busqueda.value=''
-            history(`/resultado?search=${busqueda}`)
+            history(`/resultado/${busqueda}`)
             
         }
       
@@ -37,7 +36,7 @@ const history = useNavigate()
                 console.log('')
             }else{
                 const region = e.target.value
-                history(`/region?region=${region}`)
+                history(`/region/${region}`)
             }
         
     }

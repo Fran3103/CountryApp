@@ -41,7 +41,7 @@ const BorderCountry = () => {
   return (
     <div className="bg-bgLightGray dark:bg-bgVeryDarkBlue duration-500 dark:duration-500">
 
-    {countrys.map(country => {
+    {countrys?.map(country => {
         return(
             <BordeCountry
             key={country.name.common}

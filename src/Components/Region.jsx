@@ -7,9 +7,11 @@ const Region = () => {
 
     uuidv4()
     
-    
-    // let query = new URLSearchParams(window.location.search)
-    // let resultado = query.get('region')
+    const [actvivo, setActivo] = useState(false)
+    setTimeout(() => {
+      setActivo(true)
+    }, 1000);
+  
     
     let { region} = useParams();
 
@@ -38,6 +40,7 @@ const Region = () => {
 
   return (
     <div className=" flex flex-wrap xl:grid xl:grid-cols-4 place-items-center w-full justify-center items-center gap-16 max-w-[1440px] m-auto duration-500">
+      {!countrys && <h3 className={actvivo ? 'hidden' : 'text-3xl m-auto h-[600px]'}>Loanding...</h3>}
     {countrys && 
         countrys.map((country)=>{
             return (

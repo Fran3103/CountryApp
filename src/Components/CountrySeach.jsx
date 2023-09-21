@@ -44,7 +44,7 @@ console.log(paisResultado)
     
     <div className="bg-bgLightGray dark:bg-bgVeryDarkBlue duration-500 dark:duration-500">
       
-      {!paisResultado && <h3 className={actvivo ? 'hidden' : 'text-3xl'}>Loanding...</h3>}
+      {!paisResultado && <h3 className={actvivo ? 'hidden' : 'text-3xl m-auto h-[600px]'}>Loanding...</h3>}
       {paisResultado=== undefined && <NoFound/>}
       { paisResultado && paisResultado?.map(country => {
         return(

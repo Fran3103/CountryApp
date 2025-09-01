@@ -1,21 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <script>
-        (function(){
-            const ls = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const theme = ls ?? (prefersDark ? 'dark' : 'light');
-            if(theme === 'dark'){
-                document.documentElement.classList.add('dark');}
-        })();
+      (function () {
+        const ls = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        const theme = ls ?? (prefersDark ? "dark" : "light");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
     </script>
-    <link rel="icon" type="image/svg+xml" href="/planeta-tierra.png" />
+    <link rel="icon" type="image/png" href="/planeta-tierra.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Country App</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://appcountry-fa.netlify.app/" />
+    <meta property="og:title" content="Country App" />
+    <meta
+      property="og:description"
+      content="Explorá países: búsqueda, filtro por región, detalle y dark mode."
+    />
+    <meta
+      property="og:image"
+      content="https://appcountry-fa.netlify.app/og.png"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Country App" />
+    <meta
+      name="twitter:description"
+      content="Explorá países: búsqueda, filtro por región, detalle y dark mode."
+    />
+    <meta
+      name="twitter:image"
+      content="https://appcountry-fa.netlify.app/og.png"
+    />
   </head>
-  <body class="bg-bgBlue-default dark:bg-bgBlue-dark text-textColor-default dark:text-white transition-colors duration-300">
+  <body
+    class="bg-bgBlue-default dark:bg-bgBlue-dark text-textColor-default dark:text-white transition-colors duration-300"
+  >
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -44,7 +44,7 @@ export const DetailSkeleton: React.FC = () => (
         </div>
         <div className="mt-8 flex flex-wrap gap-4  ">
           {Array.from({ length: 4 }).map((_, i) => (
-            <Block key={i} className="inline-block h-8 w-24 align-middle bg-blue-white dark:bg-blue-default" />
+            <Block key={i} className="inline-block h-8 w-24  bg-blue-white dark:bg-blue-default" />
           ))}
         </div>
       </div>

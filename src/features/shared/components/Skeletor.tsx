@@ -31,21 +31,20 @@ export const CountriesGridSkeleton: React.FC<{ count?: number }> = ({ count = 12
 
 
 export const DetailSkeleton: React.FC = () => (
-  <div className="p-8 max-w-6xl mx-auto">
-    <Block className="h-9 w-28 mb-6" /> {/* botón Back */}
+  <div className="p-8 flex flex-col gap-8 max-w-6xl mx-auto dark:opacity-15">
+    <Block className=" w-20 h-8  rounded-sm bg-blue-white dark:bg-blue-default" /> {/* botón Back */}
     <div className="flex flex-col gap-8 md:flex-row md:justify-between">
-      <Block className="w-[560px] max-w-full h-72" />
-      <div className="flex-1 space-y-4">
-        <Block className="h-7 w-2/3" />
-        <div className="grid gap-3 md:grid-cols-2">
+      <Block className="w-72  h-60  bg-blue-white dark:bg-blue-default" />
+      <div className="flex flex-col gap-4 ">
+        <Block className="h-7 w-2/3 " />
+        <div className="grid gap-3 md:grid-cols-3 ">
           {Array.from({ length: 8 }).map((_, i) => (
-            <Block key={i} className="h-4 w-4/5" />
+            <Block key={i} className="bg-blue-white dark:bg-blue-default w-24 h-3" />
           ))}
         </div>
-        <div className="mt-6 space-x-2">
-            <p>Hola</p>
+        <div className="mt-8 flex flex-wrap gap-4  ">
           {Array.from({ length: 4 }).map((_, i) => (
-            <Block key={i} className="inline-block h-8 w-24 align-middle" />
+            <Block key={i} className="inline-block h-8 w-24 align-middle bg-blue-white dark:bg-blue-default" />
           ))}
         </div>
       </div>
